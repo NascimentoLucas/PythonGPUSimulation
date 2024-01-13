@@ -8,10 +8,10 @@ class Screen:
         self.screen = np.full((self.width, self.height), "   ")
 
     def draw(self):
-        #os.system('cls')
+        os.system('cls')
         print('#' * 10)
-        for x in range(self.width):
-            for y in range(self.height):
+        for y in range(self.height):
+            for x in range(self.width):
                 print(self.screen[x][y], end = '')
 
             print('\n')
@@ -37,7 +37,7 @@ class Screen:
                 y = int(np.interp(l/lerp, [0, 1], [start[1], end[1]]))
                 l += 1
                 pixel = f'{x}.{y}'
-                self.screen[x][y] = ' * '
+                self.screen[x][y] = pixel
             
             
 
