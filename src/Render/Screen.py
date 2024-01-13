@@ -1,13 +1,15 @@
 import os
 import numpy as np
+from Render.RenderTriangule import RenderTriangule
 
 class Screen:
     def __init__(self):
         self.width =  20
         self.height = 20
-        self.screen = np.full((self.width, self.height), "   ")
+        self.screen = np.full((self.width, self.height), " - ")
 
     def draw(self):
+        
         os.system('cls')
         print('#' * 10)
         for y in range(self.height):
@@ -18,7 +20,13 @@ class Screen:
 
         print('#' * 10)
 
-    def paint(self, drawable):
+    def paint(self, drawable):  
+        for v in range(int(len(drawable) / 3)):
+            index = v * 3
+            tri = RenderTriangule(drawable[index], drawable[index + 1], drawable[index + 2])
+            tri.draw_bound(self.screen)
+
+
         for v in range(len(drawable)):
             start = [drawable[v][0], drawable[v][1]]
             end = [drawable[(v + 1) % len(drawable)][0], drawable[(v + 1) % len(drawable)][1]]
@@ -37,7 +45,7 @@ class Screen:
                 y = int(np.interp(l/lerp, [0, 1], [start[1], end[1]]))
                 l += 1
                 pixel = f'{x}.{y}'
-                self.screen[x][y] = pixel
+                self.screen[x][y] = " * "
             
             
 
