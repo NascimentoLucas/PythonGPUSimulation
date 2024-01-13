@@ -22,25 +22,18 @@ class RenderTriangule:
     def get_distance(self, p1, p2):
         return math.sqrt(math.pow(p2[0] - p1[0], 2) + math.pow(p2[1] - p1[1], 2))
 
-    def get_area(self, p1,p2,p3):
-        #print(f'{p1};{p2};{p3}', end= '#')
-        v1 = self.get_distance(p1 , p2)
-        v2 = self.get_distance(p2 , p3)
-        v3 = self.get_distance(p3 , p1)
-        p = (v1 + v2 + v3) /2
-                      
-        return math.sqrt(p * (p - v1) * (p - v2) * (p - v3))
+    def get_pineda(self, p1,p2,p):
+        v1 = (p[0] - p1[0]) * (p2[1] - p1[1])
+        v2 = (p[1] - p1[1]) * (p2[0] - p1[0])                      
+        return v1 - v2
 
     def is_inside(self, x, y):
-        tri = self.get_area(self.p[0], self.p[1], self.p[2])
-        sum = 0
         for i in range(len(self.p)):
-            r = self.get_area([x,y], self.p[i], self.p[(i+1) % len(self.p)])
-            print(f'{r} + ', end='')
-            sum += r
+            r = self.get_pineda([x,y], self.p[i], self.p[(i+1) % len(self.p)])
+            if(r < 0):
+                return False
 
-        print(f' = {[x,y]}: {sum}/{tri}')
-        return sum == tri
+        return True
 
     def draw_bound(self, screen):
 
@@ -58,9 +51,7 @@ class RenderTriangule:
             y = startY
             while(y <= endY):  
                 if(self.is_inside(x, y)):                
-                    screen[x][y] = " ^ "
-                else:
-                    screen[x][y] = " . "
+                    screen[x][y] = " * "
                 y+=1
 
             x+=1

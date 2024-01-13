@@ -4,11 +4,17 @@ import numpy as np
 class Square(DrawAble):
        
     def get_vertexs(self):
+        x = 0
+        y = 0
+        l = 5
         return np.array([
-            (5, 5, 0),
-            (10, 5, 0),
-            (10, 10, 0),
-            (5,10, 0),
+            (x, y, 0),
+            (x, y + l, 0),
+            (x + l, y + l, 0),
+            
+            (x + l, y + l, 0),
+            (x + l, y, 0),
+            (x, y, 0),
         ])
     
 class Diamond(DrawAble):

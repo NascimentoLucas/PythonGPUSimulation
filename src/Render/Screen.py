@@ -6,7 +6,7 @@ class Screen:
     def __init__(self):
         self.width =  20
         self.height = 20
-        self.screen = np.full((self.width, self.height), " - ")
+        self.screen = np.full((self.width, self.height), "  ")
 
     def draw(self):
         
