@@ -4,7 +4,7 @@ from Render.RenderTriangule import RenderTriangule
 
 class Screen:
     def __init__(self):
-        self.width =  20
+        self.width =  50
         self.height = 20
         self.screen = np.full((self.width, self.height), "  ")
 

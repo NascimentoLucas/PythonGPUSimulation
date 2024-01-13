@@ -11,5 +11,6 @@ cross = Cross ()
 item = diamond
 
 
-screen.paint(item.get_transform(3,3))
+screen.paint(item.get_transform(15,0))
+screen.paint(item.get_world())
 screen.draw()

@@ -20,8 +20,8 @@ class Square(DrawAble):
 class Diamond(DrawAble):
        
     def get_world(self):
-        x = 5
-        y = 5
+        x = 0
+        y = 0
         return np.array([
             (x + 0, y + 6, 0),
             (x + 3, y + 9, 0),
