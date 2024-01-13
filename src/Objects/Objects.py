@@ -3,7 +3,7 @@ import numpy as np
 
 class Square(DrawAble):
        
-    def get_vertexs(self):
+    def get_world(self):
         x = 3
         y = 0
         l = 5
@@ -19,7 +19,7 @@ class Square(DrawAble):
     
 class Diamond(DrawAble):
        
-    def get_vertexs(self):
+    def get_world(self):
         x = 5
         y = 5
         return np.array([
@@ -36,8 +36,7 @@ class Diamond(DrawAble):
 
 class Cross (DrawAble):
        
-    def get_vertexs(self):
-        center = (3, 3, 0)
+    def get_world(self):
         a= (0, 1, 0)
         b=(0, 2, 0)
         c=(1, 2, 0)

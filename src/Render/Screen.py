@@ -20,7 +20,7 @@ class Screen:
 
         print('#' * 10)
 
-    def paint(self, drawable):  
+    def paint(self, drawable): 
         for v in range(int(len(drawable) / 3)):
             index = v * 3
             tri = RenderTriangule(drawable[index], drawable[index + 1], drawable[index + 2])

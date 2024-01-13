@@ -7,11 +7,9 @@ import numpy as np
 screen = Screen()
 square = Square()
 diamond = Diamond()
-Cross = Cross ()
+cross = Cross ()
+item = diamond
 
-#screen.paint(square.get_vertexs())
-#screen.paint(diamond.get_vertexs())
-screen.paint(Cross.get_vertexs())
 
-for i in range(1):
-    screen.draw()
+screen.paint(item.get_transform(3,3))
+screen.draw()
