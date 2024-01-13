@@ -4,7 +4,7 @@ import numpy as np
 class Square(DrawAble):
        
     def get_world(self):
-        x = 3
+        x = 0
         y = 0
         l = 5
         return np.array([

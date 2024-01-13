@@ -8,8 +8,7 @@ class Screen:
         self.height = 20
         self.screen = np.full((self.width, self.height), "  ")
 
-    def draw(self):
-        
+    def draw(self):        
         os.system('cls')
         print('#' * 10)
         for y in range(self.height):
@@ -19,6 +18,7 @@ class Screen:
             print('\n')
 
         print('#' * 10)
+        self.screen = np.full((self.width, self.height), "  ")
 
     def paint(self, drawable): 
         for v in range(int(len(drawable) / 3)):

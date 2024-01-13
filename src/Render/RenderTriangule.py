@@ -3,7 +3,6 @@ import math
 class RenderTriangule:
     def __init__(self,p1,p2,p3):
         self.p = [p1,p2,p3]
-        print(self.p)
         self.arrX = [p1[0],p2[0],p3[0]]
         self.arrX.sort()
         self.arrY = [p1[1],p2[1],p3[1]]
