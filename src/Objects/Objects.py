@@ -28,39 +28,15 @@ class Diamond(DrawAble):
         ])
     
 
-class Cross (DrawAble):
+class triangle (DrawAble):
        
     def get_world(self):
-        a = (0, 1, 0)
-        b = (0, 2, 0)
-        c = (1, 2, 0)
-        d = (1, 3, 0)
-        e = (2, 3, 0)
-        f = (2, 2, 0)
-        g = (3, 2, 0)
-        h = (3, 1, 0)
-        i = (2, 1, 0)
-        j = (2, 0, 0)
-        k = (1, 0, 0)
-        l = (1, 1, 0)
-
-
+        l = 2
+        a = (-l, 0, 0)
+        b = (0, l, 0)
+        c = (l, 0, 0)
         return np.array([
             a,b,c,
-            c,l,a,
-
-            c,d,e,
-            e,f,c,
-
-            f,g,h,
-            h,i,f,
-
-            i,j,k,
-            k,l,i,
-
-            l,c,f,
-            f,i,l,
-
         ])
 
     

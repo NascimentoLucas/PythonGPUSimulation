@@ -11,20 +11,7 @@ class DrawAble:
     @abstractmethod
     def get_world(self):
         pass
-
-    def apply_matrix(self, matrix):
-        for i in range(int(len(self.world))):
-            world = np.array([
-                    (1, 0, self.world[i][0]),
-                    (0, 1, self.world[i][1]),
-                    (0, 0, self.world[i][2]), 
-                ]) 
-           
-            dot = np.dot(world, matrix)
-            self.world[i][0] = dot[0][2]
-            self.world[i][1] = dot[1][2]
-            self.world[i][2] = dot[2][2]
-        
+       
 
     def get_transform(self, dX, dY):
         translation_matrix = np.array([
@@ -33,7 +20,35 @@ class DrawAble:
             (0, 0, 1), 
         ]) 
 
-        self.apply_matrix(translation_matrix)
+        for i in range(int(len(self.world))):
+            world = np.array([
+                    (1, 0, self.world[i][0]),
+                    (0, 1, self.world[i][1]),
+                    (0, 0, self.world[i][2]), 
+                ]) 
+           
+            dot = np.dot(world, translation_matrix)
+            self.world[i][0] = dot[0][2]
+            self.world[i][1] = dot[1][2]
+            self.world[i][2] = dot[2][2]
+
+    def get_scale(self, dX, dY):
+        scale_matrix = np.array([
+            (dX, 0, 0),
+            (0, dY, 0),
+            (0, 0, 1), 
+        ]) 
+
+        for i in range(int(len(self.world))):
+            world = np.array([
+                    (self.world[i][0], self.world[i][1], self.world[i][2]),
+                ]) 
+           
+            dot = np.dot(world, scale_matrix)
+            self.world[i][0] = dot[0][0]
+            self.world[i][1] = dot[0][1]
+            self.world[i][2] = dot[0][2]
+        
     
     def get_rotation(self, rotation):
         theta = math.radians(rotation)

@@ -3,19 +3,22 @@ import numpy as np
 from Render.RenderTriangule import RenderTriangule
 
 class Screen:
-    def __init__(self):
+    def __init__(self, is_to_return):
+        self.is_to_return=  is_to_return
         self.width =  50
-        self.height = 20
+        self.height = 50
         self.screen = np.full((self.width, self.height), "  ")
 
-    def draw(self):        
+    def draw(self):  
+        if(self.is_to_return):
+            return      
         os.system('cls')
         print('#' * 10)
         for y in range(self.height):
             for x in range(self.width):
                 print(self.screen[x][y], end = '')
 
-            print('\n')
+            print('#\n')
 
         print('#' * 10)
         self.screen = np.full((self.width, self.height), "  ")
